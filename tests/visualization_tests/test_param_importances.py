@@ -66,7 +66,8 @@ def test_plot_param_importances_customized_target_name(
     if isinstance(figure, go.Figure):
         assert figure.layout.xaxis.title.text == "Hyperparameter Importance"
     elif isinstance(figure, Axes):
-        assert figure.figure.axes[0].get_xlabel() == "Hyperparameter Importance"
+        if figure.figure is not None:
+            assert figure.figure.axes[0].get_xlabel() == "Hyperparameter Importance"
 
 
 @parametrize_plot_param_importances

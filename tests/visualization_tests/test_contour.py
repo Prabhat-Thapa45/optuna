@@ -141,7 +141,8 @@ def test_plot_contour_customized_target_name(plot_contour: Callable[..., Any]) -
     if isinstance(figure, go.Figure):
         assert figure.data[0]["colorbar"].title.text == "Target Name"
     elif isinstance(figure, Axes):
-        assert figure.figure.axes[-1].get_ylabel() == "Target Name"
+        if figure.figure is not None:
+            assert figure.figure.axes[-1].get_ylabel() == "Target Name"
 
 
 @parametrize_plot_contour
