@@ -206,7 +206,6 @@ def _get_rank_subplot_info(
         colors=colors,
     )
 
-
 def _get_axis_info(trials: list[FrozenTrial], param_name: str) -> _AxisInfo:
     values: list[str | float | None]
     is_numerical = _is_numerical(trials, param_name)
